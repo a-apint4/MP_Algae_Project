@@ -1,0 +1,49 @@
+Collection Date,Month,Sample,Site,Location,Depth,Chlorohpyll A Concentration (µg/L),MP #/L,TDN,Phycocyanin,Turbidity,Phyc/Chla ratio
+6/24/21,Late June,OP-I-S,OP,Inlet,surface,21.3,1.7,0.294,3.96,5.51,0.185966768
+6/24/21,Late June,OP-I-B,OP,Inlet,bottom,29.6,0.6,0.281,0,8.27,
+6/24/21,Late June,OP-O-S,OP,Outlet,surface,29.41,4.29,0.281,0,6.01,
+6/24/21,Late June,OP-O-B,OP,Outlet,bottom,33.89,2.86,0.274,1.73,6.98,0.050963996
+6/30/21,Late June,LW-I-S,LW,Inlet,surface,60.91,1.14,0.614,37.69,10.01,0.618819696
+6/30/21,Late June,LW-I-B,LW,Inlet,bottom,78.04,0.29,0.599,24.03,12.31,0.30790071
+6/30/21,Late June,LW-M-S,LW,Middle,surface,63.48,2,0.632,27.76,10.95,0.437318729
+6/30/21,Late June,LW-M-B,LW,Middle,bottom,51.77,0.6,0.616,31.56,15.88,0.609542206
+6/30/21,Late June,LW-O-S,LW,Outlet,surface,36.13,1.43,0.622,14.46,11.41,0.400120377
+6/30/21,Late June,LW-O-B,LW,Outlet,bottom,50.98,0.86,0.625,34.52,10.04,0.677171876
+7/13/21,Early July,OP-I-S(A),OP,Inlet,surface,19.74,1.7,0.3604,11.86,5.24,0.600654664
+7/13/21,Early July,OP-I-B(A),OP,Inlet,bottom,24.63,1.71,0.3388,17.29,6.94,0.701968075
+7/13/21,Early July,OP-O-S(A),OP,Outlet,surface,22.62,3.43,0.3614,21.03,4.61,0.929619805
+7/13/21,Early July,OP-O-B(A),OP,Outlet,bottom,26.52,3.71,0.3625,19.5,6.26,0.735349299
+7/13/21,Early July,LW-I-S(A),LW,Inlet,surface,60.63,2.29,0.573,27.62,10.05,0.455617903
+7/13/21,Early July,LW-I-B(A),LW,Inlet,bottom,52.85,1.71,0.5584,25.98,10.34,0.491514697
+7/13/21,Early July,LW-O-S(A),LW,Outlet,surface,51.39,1.71,0.5476,39.15,9.9,0.761871261
+7/13/21,Early July,LW-O-B(A),LW,Outlet,bottom,68.44,2.29,0.5715,42.57,13.49,0.622009389
+7/23/21,Late July,OP-I-S(B),OP,Inlet,surface,15.35,,0.3736,5.82,4.22,0.378983147
+7/23/21,Late July,OP-I-B(B),OP,Inlet,bottom,20.37,1.71,0.3742,7.05,7.04,0.346270467
+7/23/21,Late July,OP-M-S(B),OP,Middle,surface,17.3,2,0.3666,3.72,4.29,0.215028902
+7/23/21,Late July,OP-M-B(B),OP,Middle,bottom,28.77,1.7,0.3551,10.73,5.8,0.372957942
+7/23/21,Late July,OP-O-S(B),OP,Outlet,surface,18.19,0.3,0.3529,4.74,4.66,0.26074443
+7/23/21,Late July,OP-O-B(B),OP,Outlet,bottom,22.78,0.6,0.379,6.28,4.52,0.275614902
+7/23/21,Late July,LW-I-S(B),LW,Inlet,surface,73.31,0.57,0.6187,22.89,8.12,0.31221164
+7/23/21,Late July,LW-I-B(B),LW,Inlet,bottom,59.29,4,0.8752,20.76,8.6,0.350218817
+7/23/21,Late July,LW-M-S(B),LW,Middle,surface,74.5,3.43,0.5881,32.3,9.5,0.433619687
+7/23/21,Late July,LW-M-B(B),LW,Middle,bottom,91.05,0.86,0.5735,40.78,13.58,0.447847447
+7/23/21,Late July,LW-O-S(B),LW,Outlet,surface,59.92,1.14,0.5283,19.03,7.01,0.317552436
+7/23/21,Late July,LW-O-B(B),LW,Outlet,bottom,69.26,2.86,0.5656,22,7.58,0.317622429
+8/8/21,Early August,LW-I-S(C) ,LW,Inlet,surface,64.26,1.14,0.5781,,,
+8/8/21,Early August,LW-I-B( C),LW,Inlet,bottom,71.15,1.43,0.5712,,,
+8/8/21,Early August,LW-M-S( C),LW,Middle,surface,62.03,2.86,0.4978,,7.38,
+8/8/21,Early August,LW-M-B( C),LW,Middle,bottom,72.48,0.57,0.612,,10.17,
+8/8/21,Early August,LW-O-S( C),LW,Outlet,surface,45.35,4.57,0.7355,,6.68,
+8/8/21,Early August,LW-O-B( C),LW,Outlet,bottom,42.39,1.43,0.5666,,7.62,
+9/12/21,Early September,LW-O-S(D),LW,Outlet,surface,32.19,0.29,0.6685,0.19,6.13,0.005973058
+9/12/21,Early September,LW-O-B(D),LW,Outlet,bottom,52.62,0.86,0.5933,11.41,6.57,0.216799696
+9/12/21,Early September,OP-I-S(D),OP,Inlet,surface,20.99,1.71,0.3601,7.42,4.99,0.353330646
+9/12/21,Early September,OP-I-B(D),OP,Inlet,bottom,25.44,2.29,0.3415,9.73,5.96,0.382468553
+9/12/21,Early September,OP-O-S(D),OP,Outlet,surface,25.26,3.71,0.4128,1.69,4.86,0.067097534
+9/12/21,Early September,OP-O-B(D),OP,Outlet,bottom,25.98,2.29,0.3519,7.49,6.99,0.288463653
+10/10/21,Early October,LW-I-S(E) ,LW,Inlet,surface,58.9,3.71,0.8277,29.5,6.3,0.50085609
+10/10/21,Early October,LW-I-B(E),LW,Inlet,bottom,67.42,1.71,0.6875,28.82,6.58,0.427528682
+10/10/21,Early October,LW-M-S(E),LW,Middle,surface,69.66,1.7,0.4578,37.22,8.04,0.534337899
+10/10/21,Early October,LW-M-B(E),LW,Middle,bottom,64.91,1.4,0.4739,31.66,8.38,0.487752272
+10/10/21,Early October,LW-O-S(E),LW,Outlet,surface,56.6,2.57,0.4685,28.55,7.51,0.504445767
+10/10/21,Early October,LW-O-B(E),LW,Outlet,bottom,66.99,2.29,0.4546,30.25,9.44,0.451533898
