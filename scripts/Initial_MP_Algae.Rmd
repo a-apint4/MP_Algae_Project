@@ -1,0 +1,124 @@
+---
+title: "MP_Algae_Proj"
+output: html_document
+---
+
+#read in my csv file
+
+
+```{r}
+library(vegan)
+library(ggplot2)
+library(gridExtra)
+library(scatterplot3d)
+```
+
+```{r setup, echo=FALSE}
+  library(knitr)
+  opts_knit$set(root.dir='../')
+```
+
+
+```{r}
+#when i compile, drop the first dot in the one below
+MP_algae <- read.csv("../data/MP_Algaedata_JMP.csv")
+
+MP_algae
+```
+
+
+
+```{r}
+boxplot(MP...L ~ Depth, data = MP_algae, xlab = "Depth", ylab = "MP #/L")
+
+```
+# the above plot shows that there is no isignificant relationship between the number of MPs in surface and bottom waters
+
+```{r}
+plot(MP...L ~ Chlorohpyll.A.Concentration..µg.L., data = MP_algae, xlab = "Chlorophyll A Concentration", ylab = "MP (#/L)")
+```
+# The above graph looks to have little to no correlation between Chla and MPs
+
+```{r}
+depth_mod = lm(MP...L ~ Depth, data = MP_algae)
+depth_mod
+```
+
+```{r}
+summary(depth_mod)
+```
+# 
+
+```{r}
+names(MP_algae) <- c("Date", "Mon", "Samp", "Site", "Loc", "Depth", "Chla", "MP", "TDN", "Phyco", "Turb", "Phyco-Chla" )
+```
+
+```{r}
+Turb_by_Chla_mod <- lm(Turb ~ Chla, data = MP_algae)
+plot(Turb ~ Chla, data = MP_algae, xlab = "Chlorophyll A Concentration", ylab = "Turbidity")
+abline(Turb_by_Chla_mod)
+text(20, 15, paste('R^2 =', round(summary(Turb_by_Chla_mod)$r.squ, 2)))
+```
+
+```{r}
+boxplot(MP ~ Loc + Site, data = MP_algae, xlab = "Location", ylab = "Microplastics (#/L)")
+#how can i get the last label to show up?
+```
+
+```{r}
+loc_mod = lm(MP ~ Loc, data = MP_algae)
+loc_mod
+#is this the right kind of model to make to fit this data??
+```
+
+```{r}
+summary(loc_mod)
+
+```
+
+```{r}
+MP_algae$site_dp <- with(MP_algae, paste(Site, Depth, sep='_'))
+MP_algae$site_dp <- factor(MP_algae$site_dp, 
+                           levels = c('LW_surface', 'LW_bottom', 'OP_surface', 'OP_bottom'))
+
+boxplot(Chla ~ site_dp , data = MP_algae, xlab = "Site by Depth", ylab = "Chlorophyll-a (mg/L)")
+
+#is there a way to make the graph show LW together and OP together
+#maybe make a grouped ggplot box plot
+```
+
+```{r}
+boxplot(Phyco ~ site_dp , data = MP_algae, xlab = "Site by Depth", ylab = "Phycocyanin (mg/L)")
+
+```
+
+```{r}
+#phyco_n <- as.numeric("Phyco")
+
+MP_algae$Date <- as.Date(MP_algae$Date, format = "%m/%d/%y") 
+#  factor(MP_algae$Date)
+MP_algae$Site <- as.factor(MP_algae$Site)
+
+boxplot(Phyco ~ Site + Date, data = MP_algae, xlab = "Collection Date", ylab = "Phycocyanin (mg/L)")
+boxplot(Phyco ~ Date + Site, data = MP_algae, xlab = "Collection Date", ylab = "Phycocyanin (mg/L)")
+plot(Phyco ~ Date, data = MP_algae)
+ggplot(data = MP_algae, aes(Date, Phyco)) + 
+  geom_point(aes(col = Site)) + 
+  geom_smooth(aes(col = Site)) + 
+  geom_hline(yintercept = 10, aes(col = 'black'))
+
+```
+
+```{r}
+boxplot(MP ~ site_dp , data = MP_algae, xlab = "Site by Depth", ylab = "Microplastics (#/L)")
+```
+
+```{r}
+Chla_by_TDN_mod <- lm(Chla ~ TDN, data = MP_algae)
+summary(Chla_by_TDN_mod)
+plot(Chla ~ TDN, data = MP_algae, xlab = "Total Dissolved Nitrogen", ylab = "Chlorophyll-a Concentration (mg/L)")
+abline(Chla_by_TDN_mod)
+```
+
+
+
