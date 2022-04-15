@@ -25,22 +25,24 @@ MP_algae <- read.csv("../data/MP_Algaedata_JMP.csv")
 
 MP_algae
 ```
-
-
+```{r}
+names(MP_algae) <- c("Date", "Mon", "Samp", "Site", "Loc", "Depth", "Chla", "MP", "TDN", "Phyco", "Turb", "Phyco-Chla" )
+```
 
 ```{r}
-boxplot(MP...L ~ Depth, data = MP_algae, xlab = "Depth", ylab = "MP #/L")
+boxplot(MP ~ Depth, data = MP_algae, xlab = "Depth", ylab = "MP #/L")
 
 ```
 # the above plot shows that there is no isignificant relationship between the number of MPs in surface and bottom waters
 
 ```{r}
-plot(MP...L ~ Chlorohpyll.A.Concentration..µg.L., data = MP_algae, xlab = "Chlorophyll A Concentration", ylab = "MP (#/L)")
+
+plot(MP ~ Chla, data = MP_algae, xlab = "Chlorophyll A Concentration", ylab = "MP (#/L)")
 ```
 # The above graph looks to have little to no correlation between Chla and MPs
 
 ```{r}
-depth_mod = lm(MP...L ~ Depth, data = MP_algae)
+depth_mod = lm(MP ~ Depth, data = MP_algae)
 depth_mod
 ```
 
@@ -49,9 +51,6 @@ summary(depth_mod)
 ```
 # 
 
-```{r}
-names(MP_algae) <- c("Date", "Mon", "Samp", "Site", "Loc", "Depth", "Chla", "MP", "TDN", "Phyco", "Turb", "Phyco-Chla" )
-```
 
 ```{r}
 Turb_by_Chla_mod <- lm(Turb ~ Chla, data = MP_algae)
@@ -77,6 +76,16 @@ summary(loc_mod)
 ```
 
 ```{r}
+Chla_by_TDN_mod <- lm(Chla ~ TDN, data = MP_algae)
+summary(Chla_by_TDN_mod)
+plot(Chla ~ TDN, data = MP_algae, xlab = "Total Dissolved Nitrogen", ylab = "Chlorophyll-a Concentration (mg/L)")
+abline(Chla_by_TDN_mod)
+```
+
+
+
+
+```{r}
 MP_algae$site_dp <- with(MP_algae, paste(Site, Depth, sep='_'))
 MP_algae$site_dp <- factor(MP_algae$site_dp, 
                            levels = c('LW_surface', 'LW_bottom', 'OP_surface', 'OP_bottom'))
@@ -91,6 +100,20 @@ boxplot(Chla ~ site_dp , data = MP_algae, xlab = "Site by Depth", ylab = "Chloro
 boxplot(Phyco ~ site_dp , data = MP_algae, xlab = "Site by Depth", ylab = "Phycocyanin (mg/L)")
 
 ```
+```{r}
+ggplot(data = MP_algae, aes(x=Site, y=Chla, fill=Depth))+
+  geom_boxplot()
+```
+
+
+```{r}
+xyplot(Turb ~ Chla | Site , data=MP_algae, pch=20 , cex=3 , col=rgb(0.2,0.4,0.8,0.5) )
+ggplot(MP_algae, aes(x=Chla, y=Turb))+
+  geom_point()+
+  geom_smooth(method= "lm")+
+  facet_wrap(~ Site)
+```
+
 
 ```{r}
 #phyco_n <- as.numeric("Phyco")
@@ -105,20 +128,32 @@ plot(Phyco ~ Date, data = MP_algae)
 ggplot(data = MP_algae, aes(Date, Phyco)) + 
   geom_point(aes(col = Site)) + 
   geom_smooth(aes(col = Site)) + 
-  geom_hline(yintercept = 10, aes(col = 'black'))
+  geom_hline(yintercept = 30, aes(col = 'black'))
 
 ```
+```{r}
+ggplot(data = MP_algae, aes(x=Site, y=MP, fill=Depth))+
+  geom_boxplot()
+
+```
+```{r}
+# we see that there is a difference in spatial distribution within OP but not in LW 
+ggplot(data = MP_algae, aes(x=Site, y=MP, fill=Loc))+
+  geom_boxplot()
+```
+
 
 ```{r}
-boxplot(MP ~ site_dp , data = MP_algae, xlab = "Site by Depth", ylab = "Microplastics (#/L)")
+xyplot(MP ~ Chla | Site , data=MP_algae , pch=20 , cex=3 , col=rgb(0.2,0.4,0.8,0.5) )
+ggplot(MP_algae, aes(x=Chla, y=MP))+
+  geom_point()+
+  geom_smooth(method= "lm")+
+  facet_wrap(~ Site)
 ```
 
-```{r}
-Chla_by_TDN_mod <- lm(Chla ~ TDN, data = MP_algae)
-summary(Chla_by_TDN_mod)
-plot(Chla ~ TDN, data = MP_algae, xlab = "Total Dissolved Nitrogen", ylab = "Chlorophyll-a Concentration (mg/L)")
-abline(Chla_by_TDN_mod)
-```
+# need to make two more graphs. Chla vs. Turb by lake and Chla vs. MP by lake
 
+# maybe try a non-faceted graph 
+#drop facet wrap, add aes(col=Site)
 
 
